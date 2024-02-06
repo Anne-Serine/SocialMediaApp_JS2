@@ -1,18 +1,18 @@
 import { setRegisterFormListener } from "./handlers/register.mjs";
+import { setLoginFormListener } from "./handlers/login.mjs";
+import { load } from "./storage/index.mjs";
 
-await setRegisterFormListener();
+const path = location.pathname;
 
+console.log(path)
 
-
-
-
-// export function save(key, value) {
-//   localStorage.setItem(key, JSON.stringify(value));
-// }
-
-
-// export function load(key) {
-//   return JSON.parse(localStorage.getItem(key));
-// }
-
-
+if (path === "/index.html" || path === "/") {
+  await setLoginFormListener();
+} else if (path === "/register/") {
+  await setRegisterFormListener();
+} else {
+  const loggedIn = load("token");
+  if(!loggedIn) {
+      window.location.href = "/";
+  }
+}

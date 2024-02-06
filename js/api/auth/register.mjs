@@ -7,14 +7,13 @@ export async function registerUser(name, email, password) {
       "Content-Type" : "application/json",
     },
     body: JSON.stringify({name, email, password})
-    });
+  });
 
-    
-    if (response.ok) {
-      const result = await response.json();
-      return result;
-    }
-    
-    throw new Error("Could not register the account");
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  } else {
+    return {error: "Could not register the account."}
+  }
 }
 
