@@ -1,10 +1,10 @@
 import { setRegisterFormListener } from "./handlers/register.mjs";
 import { setLoginFormListener } from "./handlers/login.mjs";
 import { load } from "./storage/index.mjs";
+// import { createAPIKey } from "./api/constants.mjs";
 
 const path = location.pathname;
 
-console.log(path)
 
 if (path === "/index.html" || path === "/") {
   await setLoginFormListener();
@@ -16,3 +16,7 @@ if (path === "/index.html" || path === "/") {
       window.location.href = "/";
   }
 }
+
+
+// console.log(createAPIKey())
+
