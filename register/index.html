@@ -6,13 +6,13 @@
   <meta name="description" content="Mobile Photography SoMe app. Share your best tips and mobile photos with others.">
   <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <script defer src="/dist/bootstrap.bundle.min.js"></script>
-  <script type="module" src="./js/index.mjs"></script>
-  <link rel="stylesheet" href="dist/css/index.css">
+  <script type="module" src="../js/index.mjs"></script>
+  <link rel="stylesheet" href="../dist/css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/777383031e.js" crossorigin="anonymous"></script>
-  <title>Mobile Photography | Login</title>
+  <title>Mobile Photography | Register</title>
 </head>
 <body>
 
@@ -27,26 +27,31 @@
       </div>
       <div class="col-12 col-lg-6 d-flex align-items-center flex-column justify-content-center vh-100">
         <div class="container pt-5 col-10 col-md-7 col-lg-8">
-          <h2 class="mb-5">Log in</h2>
-          <form action="profile/index.html" class="mx-auto" id="loginForm">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="email" class="form-control" id="username" placeholder="Your e-mail address" required>
+          <h2 class="mb-5">Register user</h2>
+          <form id="registerForm" method="post" action="/index.html">
+            <div class="form-group mb-3">
+              <label for="name">Name</label>
+              <input class="form-control" type="text" name="name" id="name" required pattern="^[\w]+$" title="The name must not contain punctuation symbols apart from underscore (_)">
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Your password" minlength="8" required>
+            <div class="form-group mb-3">
+              <label for="email">E-mail</label>
+              <input class="form-control" type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$" title="The email must be a valid stud.noroff.no email address">
             </div>
-            <p class="opacity-50">Forgot yout password? Click <a href="#">here</a></p>
-            <div class="d-flex justify-content-center py-4">
-              <button class="btn btn-primary col-6 col-sm-5 col-md-5 col-lg-6" type="submit" value="Login">Login</button>
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" name="password" id="password" required minlength="8" title="The password must be at least 8 characters">
             </div>
+            <!-- <div class="form-group mb-3">
+              <label for="confirmPassword">Confirm password</label>
+              <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" required minlength="8" title="The password must be at least 8 characters">
+            </div> -->
+            <button type="submit" class="btn btn-primary px-4 py-2" id="registerSubmitBtn">Submit</button>
           </form>
         </div>
         <div class="container mt-5 pb-5">
           <div class="text-center mb-5">
-            <p>Don´t have an account yet?</p>
-            <p>Register <a href="/register/">here</a></p>
+            <p>If you already have an account</p>
+            <p>Log in <a href="/index.html">here</a></p>
           </div>
         </div>
       </div>
