@@ -15,7 +15,6 @@ export async function setLoginFormListener() {
       loginUser(profile.email, profile.password).then((d) => {
         if(d.error) {
           // TODO: Output d.error message in html
-          console.log(d.error)
         } else {
           window.location.href = "/profile"
         }

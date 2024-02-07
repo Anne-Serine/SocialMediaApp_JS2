@@ -1,6 +1,7 @@
 import { setRegisterFormListener } from "./handlers/register.mjs";
 import { setLoginFormListener } from "./handlers/login.mjs";
 import { load } from "./storage/index.mjs";
+import { setCreatePostListener } from "./handlers/post.mjs";
 // import { createAPIKey } from "./api/constants.mjs";
 
 const path = location.pathname;
@@ -17,6 +18,6 @@ if (path === "/index.html" || path === "/") {
   }
 }
 
-
+await setCreatePostListener();
 // console.log(createAPIKey())
 
