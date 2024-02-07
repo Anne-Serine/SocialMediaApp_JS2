@@ -13,7 +13,8 @@ export async function setCreatePostListener() {
   
       // console.log(data)
       createPost(data.title, data.content, data.image).then((postData) => {
-        console.log(postData)
+        // console.log(postData)
+        window.location.href = "/feed"
       })
     })
   }
