@@ -11,6 +11,9 @@ export function postTamplate(post) {
     <div class="col-6 d-flex align-items-center">
       <div class="container">
         <div class="row">
+          <p class="h5 text-secondary">@${post.author.name}</p>
+        </div>
+        <div class="row">
           <h3 class="h4">${post.title}</h3>
         </div>
         <div class="row">
@@ -18,6 +21,10 @@ export function postTamplate(post) {
         </div>
         <div class="row d-none d-md-block">
           <p>${post.body}</p>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button value=${post.id} class="btn btn-dark me-2" data-post-id=${post.id}>Edit</button>
+          <button value=${post.id} class="btn btn-danger">Delete</button>
         </div>
       </div> 
     </div>

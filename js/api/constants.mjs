@@ -5,6 +5,8 @@ export const API_AUTH = "/auth";
 export const API_REGISTER = "/register";
 export const API_LOGIN ="/login";
 export const API_POSTS = "/social/posts";
+export const API_PARAMS = "?_author=true&_comments=true&_reactions=true";
+
 
 // export const API_KEY_URL = "/create-api-key";
 

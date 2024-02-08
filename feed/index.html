@@ -108,6 +108,23 @@
 
         <h2 class="h3">Latest posts</h2>
         <div id="postFeed"></div>
+        <dialog class="p-3 " id="modal">
+          <form id="editPost" method="post" action="">
+            <div class="form-group mb-3">
+              <label for="name">Title</label>
+              <input class="form-control" type="text" name="title" id="editTitle" required title="Please enter a title for your post">
+            </div>
+            <div class="form-group mb-3">
+              <label for="content">Content</label>
+              <textarea class="form-control" name="content" id="editContent" rows="4" placeholder="Write here..."></textarea>
+            </div>
+            <div class="form-group mb-3">
+              <label for="image">Image</label>
+              <input class="form-control" type="url" name="image" id="editImageUrl" title="Here you can add an image">
+            </div>
+            <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
+          </form>
+        </dialog>
         
         <!-- <div class="card image-card p-3 d-flex justify-content-center mb-2">
           <div class="row">
