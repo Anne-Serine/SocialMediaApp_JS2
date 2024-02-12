@@ -8,11 +8,17 @@ export async function setDeletePostListener() {
   deletePostBtns.forEach(button => {
     button.addEventListener("click", async () => {
       const postId = button.dataset.deletePostId;
-      await deletePost(postId)
+      const deletePostResponse = await deletePost(postId)
       await postFeed();
+
+      console.log(deletePostResponse)
+
+      const statusMessage = document.querySelector("#statusMessage");
+      if(deletePostResponse.ok) {
+        statusMessage.innerHTML = "Successfully deleted";
+      } else {
+        statusMessage.innerHTML = "Something went wrong, try again";
+      }
     })
-
   })
-  
-
 }

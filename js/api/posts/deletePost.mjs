@@ -11,7 +11,6 @@ export async function deletePost(id) {
       "X-Noroff-API-Key": API_KEY,
       "Content-Type": "application/json"
     },
-  });
-  
-  return await response.json();
+  })
+  return response;
 }

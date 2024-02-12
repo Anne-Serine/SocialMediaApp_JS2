@@ -24,7 +24,7 @@ export function modalEditPost() {
         if(input.id === "editContent") {
           input.value = post.data.body;
         }
-        if(input.id === "editImageUrl") {
+        if(input.id === "editImageUrl" && post.data.media) {
           input.value = post.data.media.url;
         }
         if(input.id === "postId") {
@@ -46,12 +46,10 @@ export function modalEditPost() {
     const data = Object.fromEntries(formData.entries());
 
     // console.log(data)
-    editPost(data.title, data.content, data.image, data.postId).then((postData) => {
-      console.log(postData)
-      // window.location.href = "/feed"
-    })
-    modal.close(); 
+    const test = await editPost(data.title, data.content, data.image, data.postId)
+    console.log(test)
     await postFeed();
+    modal.close(); 
   })
   
   modal.addEventListener("click", (event) => {

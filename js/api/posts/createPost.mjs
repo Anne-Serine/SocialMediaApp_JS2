@@ -2,6 +2,18 @@ import { API_BASE, API_POSTS, API_KEY } from "../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
 export async function createPost(title, content, image) {
+  let object
+
+  if(image) {
+    object = {
+      title: title, body: content, media: { url: image, alt: "" }
+    }
+  } else {
+    object = {
+      title: title, body: content
+    }
+  }
+
   const response = await fetch(API_BASE + API_POSTS, {
     headers: {
       Authorization: `Bearer ${load("token")}`,
@@ -9,9 +21,8 @@ export async function createPost(title, content, image) {
       "Content-Type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({
-      title: title, body: content, media: { url: image, alt: "" }
-    }),
+    body: JSON.stringify(object),
   });
+  
   return await response.json();
 }
