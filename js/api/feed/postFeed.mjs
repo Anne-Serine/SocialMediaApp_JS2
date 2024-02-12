@@ -9,7 +9,8 @@ export async function postFeed() {
     await getPosts().then((posts) => {
 
       //console.log(posts)
-      
+      postFeed.innerHTML = "";
+
       for (const post of posts.data) {
         postFeed.innerHTML += postTamplate(post)
       }

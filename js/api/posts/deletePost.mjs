@@ -2,13 +2,10 @@ import { API_BASE, API_POSTS, API_KEY } from "../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
 
-export async function editPost(title, content, image, id) {
+export async function deletePost(id) {
   
   const response = await fetch(API_BASE + API_POSTS + `/${id}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      title: title, body: content, media: { url: image, alt: "" },
-    }),
+    method: "DELETE",
     headers: {
       Authorization: `Bearer ${load("token")}`,
       "X-Noroff-API-Key": API_KEY,
