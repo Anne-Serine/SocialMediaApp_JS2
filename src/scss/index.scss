@@ -75,3 +75,17 @@ button,
 .login-hero-img {
   max-width: unset;
 }
+
+.post-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.post-image img {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}

@@ -6,7 +6,7 @@
   <meta name="description" content="Mobile Photography SoMe app. Share your best tips and mobile photos with others.">
   <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <script defer src="/dist/bootstrap.bundle.min.js"></script>
-  <script type="module" src="./js/index.mjs"></script>
+  <script type="module" src="../js/index.mjs"></script>
   <link rel="stylesheet" href="/dist/css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,46 +77,20 @@
 
       <div class="col-lg-6 col-md-8 col-sm-10 col mx-auto">
         <h1 class="h3">Create new content</h1>
-        <form action="#" class="card bg-dark p-4">
-          <div class="row">
-            <div class="col input-group mb-3">
-              <input type="file" class="form-control" id="inputFile">
-              <label class="input-group" for="inputFile"></label>
-            </div>
+        <form id="createPost" method="post" action="">
+          <div class="form-group mb-3">
+            <label for="name">Title</label>
+            <input class="form-control" type="text" name="title" id="title" required title="Please enter a title for your post">
           </div>
-          <div class="row">
-            <div class="col input-group mb-3">
-              <span class="input-group-text" id="authorInput">@</span>
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="authorInput">
-            </div>
+          <div class="form-group mb-3">
+            <label for="content">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="4" placeholder="Write here..."></textarea>
           </div>
-          <div class="row">
-            <div class="col input-group mb-3">
-              <label for="textarea" class="input-group text-white">Textarea/Content</label>
-              <textarea class="form-control" aria-label="textarea" id="textarea"></textarea>
-            </div>
+          <div class="form-group mb-3">
+            <label for="image">Image</label>
+            <input class="form-control" type="url" name="image" id="image" title="Here you can add an image">
           </div>
-          <div class="row mb-1">
-            <div class="col d-flex">
-              <span class="input-group-text" id="tagInput1">#</span>
-              <input type="text" class="form-control" placeholder="tag" aria-label="tag" aria-describedby="tagInput1">
-            </div>
-            <div class="col d-flex">
-              <span class="input-group-text" id="tagInput2">#</span>
-              <input type="text" class="form-control" placeholder="tag" aria-label="tag" aria-describedby="tagInput2">
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col d-flex">
-              <span class="input-group-text" id="tagInput3">#</span>
-              <input type="text" class="form-control" placeholder="tag" aria-label="tag" aria-describedby="tagInput3">
-            </div>
-            <div class="col d-flex">
-              <span class="input-group-text" id="tagInput4">#</span>
-              <input type="text" class="form-control" placeholder="tag" aria-label="tag" aria-describedby="tagInput4">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Upload</button>
+          <button type="submit" class="btn btn-primary px-4 py-2" id="registerSubmitBtn">Upload</button>
         </form>
 
         <div class="dropdown mt-4 mb-5">
@@ -133,8 +107,9 @@
         </div>
 
         <h2 class="h3">Latest posts</h2>
-
-        <div class="card image-card p-3 d-flex justify-content-center mb-2">
+        <div id="postFeed"></div>
+        
+        <!-- <div class="card image-card p-3 d-flex justify-content-center mb-2">
           <div class="row">
             <div class="col-6">
               <img src="/images/yellow-flowers.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
@@ -267,7 +242,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
