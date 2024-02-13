@@ -107,142 +107,28 @@
         </div>
 
         <h2 class="h3">Latest posts</h2>
+        <div id="statusMessage"></div>
         <div id="postFeed"></div>
+        <dialog class="p-3 " id="modal">
+          <button class="close-modal" title="close">&times;</button>
+          <form id="editPost" method="post" action="">
+            <div class="form-group mb-3">
+              <label for="name">Title</label>
+              <input class="form-control" type="text" name="title" id="editTitle" required title="Please enter a title for your post">
+            </div>
+            <div class="form-group mb-3">
+              <label for="content">Content</label>
+              <textarea class="form-control" name="content" id="editContent" rows="4" placeholder="Write here..."></textarea>
+            </div>
+            <div class="form-group mb-3">
+              <label for="image">Image</label>
+              <input class="form-control" type="url" name="image" id="editImageUrl" title="Here you can add an image">
+            </div>
+            <input type="hidden" name="postId" id="postId">
+            <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
+          </form>
+        </dialog>
         
-        <!-- <div class="card image-card p-3 d-flex justify-content-center mb-2">
-          <div class="row">
-            <div class="col-6">
-              <img src="/images/yellow-flowers.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="container">
-                <div class="row">
-                  <h3 class="h4">Yellow Spring</h3>
-                </div>
-                <div class="row">
-                  <p>@ Betty</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>#spring #flowers #yellow</p>
-                </div>
-              </div> 
-            </div>
-          </div>
-        </div>
-
-        <div class="card image-card p-3 d-flex justify-content-center mb-2">
-          <div class="row">
-            <div class="col-6">
-              <img src="/images/mushroom.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="container">
-                <div class="row">
-                  <h3 class="h4">Into the Forest</h3>
-                </div>
-                <div class="row">
-                  <p>@ Kara</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. content content</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>#mushroom #forest #red</p>
-                </div>
-              </div> 
-            </div> 
-          </div>
-        </div>
-
-        <div class="card image-card p-3 d-flex justify-content-center mb-2">
-          <div class="row">
-            <div class="col-6">
-              <img src="/images/dandelion-end.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="container">
-                <div class="row">
-                  <h3 class="h4">The End</h3>
-                </div>
-                <div class="row">
-                  <p>@ Pixie</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. content</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>#dandelion #end</p>
-                </div>
-              </div> 
-            </div>
-          </div>
-        </div>
-
-        <div class="card image-card p-3 d-flex justify-content-center mb-2">
-          <div class="row">
-            <div class="col-6">
-              <img src="/images/fall.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="container">
-                <div class="row">
-                  <h3 class="h4">Fall is Here</h3>
-                </div>
-                <div class="row">
-                  <p>@ AnneSerine</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. content</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>#fall &orange</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card image-card mb-2">
-          <div class="row">
-            <div class="col d-flex justify-content-start m-2">
-              <a href="#"><img src="/images/AS.jpg" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-              <p class="ms-2 mb-0 d-flex align-items-center">@AnneSerine</p>
-            </div>
-            <img src="/images/ocean.jpg" alt="the ocean at the coast of Haugesund">
-            <div class="row m-2">
-              <h3 class="h4">Blue Coast</h3>
-              <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque.</p>
-              <a href="#">Read more...</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card image-card p-3 d-flex justify-content-center mb-2">
-          <div class="row">
-            <div class="col-6">
-              <img src="/images/lighthouse.jpg" class="img-fluid rounded-circle" alt="a girl with a flower wreath">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="container">
-                <div class="row">
-                  <h3 class="h4">Sunset</h3>
-                </div>
-                <div class="row">
-                  <p>@ Lisa</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. content content</p>
-                </div>
-                <div class="row d-none d-md-block">
-                  <p>#lighthouse &coast #sunset</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
       </div>
 

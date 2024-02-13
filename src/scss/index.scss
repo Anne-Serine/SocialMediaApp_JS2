@@ -51,6 +51,10 @@ img {
   max-width: 100%;
 }
 
+textarea {
+  resize: none;
+}
+
 .custom-list-group-item {
   display: flex;
   align-items: center;

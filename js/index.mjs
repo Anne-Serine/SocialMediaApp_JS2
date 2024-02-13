@@ -3,6 +3,8 @@ import { setLoginFormListener } from "./handlers/login.mjs";
 import { load } from "./storage/index.mjs";
 import { setCreatePostListener } from "./handlers/post.mjs";
 import { postFeed } from "./api/feed/postFeed.mjs";
+import { setDeletePostListener } from "./handlers/delete.mjs";
+
 // import { createAPIKey } from "./api/constants.mjs";
 
 const path = location.pathname;
@@ -29,3 +31,6 @@ await setCreatePostListener();
 // console.log(createAPIKey())
 
 await postFeed();
+
+await setDeletePostListener();
+
