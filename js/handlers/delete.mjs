@@ -15,7 +15,7 @@ export async function setDeletePostListener() {
 
       const statusMessage = document.querySelector("#statusMessage");
       if(deletePostResponse.ok) {
-        statusMessage.innerHTML = "Successfully deleted";
+        statusMessage.innerHTML = "The post was successfully deleted";
       } else {
         statusMessage.innerHTML = "Something went wrong, try again";
       }

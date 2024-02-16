@@ -1,7 +1,7 @@
 export function postTamplate(post) {
   const formattedDate = new Date(post.created);
 
-  return `<div class="card image-card p-3 d-flex justify-content-center mb-2">
+  return `<div class="card image-card p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
   <div class="row">
     <div class="col-6">
       <div class="rounded-circle overflow-hidden post-image img-fluid">
@@ -23,8 +23,9 @@ export function postTamplate(post) {
           <p>${post.body}</p>
         </div>
         <div class="d-flex justify-content-end">
-          <button value=${post.id} class="btn btn-dark me-2" data-post-id=${post.id}>Edit</button>
-          <button value=${post.id} class="btn btn-danger" data-delete-post-id=${post.id}>Delete</button>
+          <button value=${post.id} class="btn btn-secondary me-2" data-view-post-id="${post.id}">View</button>
+          <button value=${post.id} class="btn btn-dark me-2" data-post-id="${post.id}">Edit</button>
+          <button value=${post.id} class="btn btn-danger" data-delete-post-id="${post.id}">Delete</button>
         </div>
       </div> 
     </div>

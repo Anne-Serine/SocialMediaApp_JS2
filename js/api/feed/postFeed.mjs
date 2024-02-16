@@ -2,6 +2,7 @@ import { setDeletePostListener } from "../../handlers/delete.mjs";
 import { modalEditPost } from "../../handlers/modalEditPost.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
 import { postTamplate } from "../posts/postTemplate.mjs";
+import { viewSinglePostModal } from "../posts/viewPostInModal.mjs";
 
 export async function postFeed() {
   const postFeed = document.querySelector("#postFeed");
@@ -15,6 +16,7 @@ export async function postFeed() {
       for (const post of posts.data) {
         postFeed.innerHTML += postTamplate(post)
       }
+      viewSinglePostModal();
       modalEditPost();
       setDeletePostListener();
     })

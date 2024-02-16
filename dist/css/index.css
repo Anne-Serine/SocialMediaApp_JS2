@@ -11933,4 +11933,9 @@ button,
   min-height: 100%;
 }
 
+dialog::backdrop {
+  background: black;
+  opacity: 80%;
+}
+
 /*# sourceMappingURL=index.css.map */
