@@ -53,11 +53,9 @@ export function modalEditPost() {
   })
   
   modal.addEventListener("click", (event) => {
-    const rect = modal.getBoundingClientRect();
   
-    if (event.clientY < rect.top || event.clientY > rect.bottom || event.clientX <  rect.left || event.clientX > rect.right) {
+    if (event.target === modal) {
       modal.close();
     }
-  
   });
 }

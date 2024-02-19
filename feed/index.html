@@ -107,26 +107,36 @@
         </div>
 
         <h2 class="h3">Latest posts</h2>
-        <div id="statusMessage"></div>
+        <div id="statusMessage" class="text-success py-3"></div>
         <div id="postFeed"></div>
-        <dialog class="p-3 " id="modal">
-          <button class="close-modal" title="close">&times;</button>
-          <form id="editPost" method="post" action="">
-            <div class="form-group mb-3">
-              <label for="name">Title</label>
-              <input class="form-control" type="text" name="title" id="editTitle" required title="Please enter a title for your post">
+        <dialog class="p-0 border-1" id="modal">
+          <div class="p-3">
+            <button class="close-modal" title="close">&times;</button>
+            <form id="editPost" method="post" action="">
+              <div class="form-group mb-3">
+                <label for="name">Title</label>
+                <input class="form-control" type="text" name="title" id="editTitle" required title="Please enter a title for your post">
+              </div>
+              <div class="form-group mb-3">
+                <label for="content">Content</label>
+                <textarea class="form-control" name="content" id="editContent" rows="4" placeholder="Write here..."></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="image">Image</label>
+                <input class="form-control" type="url" name="image" id="editImageUrl" title="Here you can add an image">
+              </div>
+              <input type="hidden" name="postId" id="postId">
+              <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
+            </form>
+          </div>
+        </dialog>
+        <dialog class="border-secondary p-0 border-1 col-12 col-sm-10 col-lg-8" id="viewSinglePostModal">
+          <div class="p-3">
+            <div class="d-flex justify-content-end">
+              <button class="close-view-post-modal border-0" title="close">&times;</button>
             </div>
-            <div class="form-group mb-3">
-              <label for="content">Content</label>
-              <textarea class="form-control" name="content" id="editContent" rows="4" placeholder="Write here..."></textarea>
-            </div>
-            <div class="form-group mb-3">
-              <label for="image">Image</label>
-              <input class="form-control" type="url" name="image" id="editImageUrl" title="Here you can add an image">
-            </div>
-            <input type="hidden" name="postId" id="postId">
-            <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
-          </form>
+            <div class="p-2 modalCardContainer w-100"></div>
+          </div>
         </dialog>
         
 
