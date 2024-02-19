@@ -11,3 +11,8 @@ export async function getSinglePost(id) {
   });
   return await response.json();
 }
+
+
+
+
+

@@ -22,5 +22,6 @@ export function singlePostTamplate(post) {
         <p>${post.body}</p>
       </div>
     </div> 
+    <button value=${post.id} class="btn btn-primary me-2" data-share-btn-id="${post.id}">Share</button>
   </div>`
 }
