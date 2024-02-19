@@ -1,5 +1,4 @@
 import { getSinglePost } from "./getSinglePost.mjs";
-import { postTamplate } from "./postTemplate.mjs";
 import { singlePostTamplate } from "./singlePostTemplate.mjs";
 import { sharePostLink } from "../../handlers/share.mjs";
 
@@ -22,19 +21,20 @@ export async function viewSinglePostModal() {
       const postId = button.dataset.viewPostId
 
       openSinglePostModal(postId, singlePostModal);
-      
-
-      window.history.replaceState(null, null,"?postId=" + postId)
+      searchParameters.set("postId", postId)
+      window.history.replaceState(null, null, "?" + searchParameters.toString())
     })
   })
 
   viewPostCloseBtn.addEventListener("click", () => {
     singlePostModal.close();
+    window.history.replaceState(null, null, "/feed");
   })
   singlePostModal.addEventListener("click", (event) => {
   
     if (event.target === singlePostModal) {
       singlePostModal.close();
+      window.history.replaceState(null, null, "/feed");
     }
   
   });
