@@ -34,4 +34,3 @@ await setCreatePostListener();
 await postFeed();
 
 await setDeletePostListener();
-

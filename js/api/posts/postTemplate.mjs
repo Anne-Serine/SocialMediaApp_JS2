@@ -1,5 +1,6 @@
-export function postTamplate(post) {
+export function postTamplate(post, userName) {
   const formattedDate = new Date(post.created);
+
 
   return `<div class="card image-card p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
   <div class="row">
@@ -24,8 +25,11 @@ export function postTamplate(post) {
         </div>
         <div class="d-flex justify-content-end">
           <button value=${post.id} class="btn btn-secondary me-2" data-view-post-id="${post.id}">View</button>
-          <button value=${post.id} class="btn btn-dark me-2" data-post-id="${post.id}">Edit</button>
-          <button value=${post.id} class="btn btn-danger" data-delete-post-id="${post.id}">Delete</button>
+          ${userName === post.author.name ? 
+            `<button value=${post.id} class="btn btn-dark me-2" data-post-id="${post.id}">Edit</button>
+            <button value=${post.id} class="btn btn-danger" data-delete-post-id="${post.id}">Delete</button>`
+            : ""
+          }
         </div>
       </div> 
     </div>

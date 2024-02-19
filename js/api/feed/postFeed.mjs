@@ -14,8 +14,11 @@ export async function postFeed() {
       //console.log(posts)
       postFeed.innerHTML = "";
 
+      const storage = localStorage.getItem("profile");
+      const profileObj = JSON.parse(storage);
+
       for (const post of posts.data) {
-        postFeed.innerHTML += postTamplate(post)
+        postFeed.innerHTML += postTamplate(post, profileObj.name)
       }
       viewSinglePostModal();
       modalEditPost();
