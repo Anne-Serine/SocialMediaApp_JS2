@@ -23,13 +23,11 @@
             <a href="/profile.html"><img src="/images/AS.jpg" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
             <p class="ms-2 mb-0 d-flex align-items-center">@AnneSerine</p>
           </div>
-          <div class="col-12 col-lg-8 d-flex justify-content-center order-3 order-lg-2 mx-auto">
-            <nav class="navbar">
-              <input class="form-control me-1" type="search" id="searchInput" placeholder="Search" aria-label="Search">
-              <div>
-                <ul id="searchResults"></ul>
-              </div>
-            </nav>
+          <div class="position-relative col-lg-6 d-flex justify-content-center order-3 order-lg-2 mx-auto p-0">
+            <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+            <div class="z-2 position-absolute top-100 w-100 overflow-y-auto max-height-40vh shadow">
+              <ul id="searchResults" class="list-group"></ul>
+            </div>
           </div>
           <div class="col d-flex justify-content-end order-2 order-lg-3">
             <p class="me-2 mb-0 d-flex align-items-center">log out</p>

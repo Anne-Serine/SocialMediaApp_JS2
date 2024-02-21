@@ -11938,4 +11938,8 @@ dialog::backdrop {
   opacity: 80%;
 }
 
+.max-height-40vh {
+  max-height: 40vh;
+}
+
 /*# sourceMappingURL=index.css.map */

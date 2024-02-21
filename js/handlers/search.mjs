@@ -12,8 +12,8 @@ export function searchInput() {
       const posts = await searchPosts(value)
 
       for(let i = 0; i < posts.data.length; i++) {
-        searchResults.innerHTML += `<li>
-        <a href="/feed/?postId=${posts.data[i].id}"> ${posts.data[i].title}</a>
+        searchResults.innerHTML += `<li class="list-group-item text-wrap bg-light">
+        <a href="/feed/?postId=${posts.data[i].id}" class="text-dark link-underline link-underline-opacity-0"> ${posts.data[i].title}"</a>
         </li>`
       }
       console.log(posts)

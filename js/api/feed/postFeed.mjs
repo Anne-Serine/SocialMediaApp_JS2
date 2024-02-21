@@ -10,7 +10,7 @@ export async function postFeed() {
   if (postFeed) {
     await getPosts().then((posts) => {
 
-      //console.log(posts)
+      console.log(posts)
       postFeed.innerHTML = "";
 
       const storage = localStorage.getItem("profile");
