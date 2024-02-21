@@ -4,6 +4,8 @@ import { load } from "./storage/index.mjs";
 import { setCreatePostListener } from "./handlers/post.mjs";
 import { postFeed } from "./api/feed/postFeed.mjs";
 import { setDeletePostListener } from "./handlers/delete.mjs";
+import { searchInput } from "./handlers/search.mjs";
+
 
 
 // import { createAPIKey } from "./api/constants.mjs";
@@ -34,3 +36,6 @@ await setCreatePostListener();
 await postFeed();
 
 await setDeletePostListener();
+
+searchInput()
+

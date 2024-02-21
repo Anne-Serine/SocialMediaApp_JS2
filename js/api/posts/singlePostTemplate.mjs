@@ -2,11 +2,7 @@ export function singlePostTamplate(post) {
   const formattedDate = new Date(post.created);
 
   return `<div class="card image-card border-0 p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
-    <div class="container row">
-      <div class="col img-fluid mb-2">
-      ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}">` : "No image"}
-      </div>
-    </div>
+      ${post.media ? `<img src="${post.media.url}" class="mb-2" alt="${post.media.alt}">` : "No image"}
 
     <div class="container">
       <div class="row">
@@ -22,6 +18,6 @@ export function singlePostTamplate(post) {
         <p>${post.body}</p>
       </div>
     </div> 
-    <button value=${post.id} class="btn btn-primary me-2" data-share-btn-id="${post.id}">Share</button>
+    <button value=${post.id} class="btn btn-primary" data-share-btn-id="${post.id}">Share</button>
   </div>`
 }
