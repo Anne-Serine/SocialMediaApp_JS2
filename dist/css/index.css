@@ -11942,4 +11942,8 @@ dialog::backdrop {
   max-height: 40vh;
 }
 
+.form-control::placeholder {
+  opacity: 50%;
+}
+
 /*# sourceMappingURL=index.css.map */
