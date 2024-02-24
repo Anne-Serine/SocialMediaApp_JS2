@@ -12,5 +12,6 @@ export async function deletePost(id) {
       "Content-Type": "application/json"
     },
   })
+  // console.log(response)
   return response;
 }

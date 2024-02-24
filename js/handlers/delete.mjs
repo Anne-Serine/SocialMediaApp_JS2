@@ -9,7 +9,6 @@ export async function setDeletePostListener() {
     button.addEventListener("click", async () => {
       const postId = button.dataset.deletePostId;
       const deletePostResponse = await deletePost(postId)
-      await postFeed();
 
       console.log(deletePostResponse)
 
@@ -19,6 +18,7 @@ export async function setDeletePostListener() {
       } else {
         statusMessage.innerHTML = "Something went wrong, try again";
       }
+      await postFeed();
     })
   })
 }

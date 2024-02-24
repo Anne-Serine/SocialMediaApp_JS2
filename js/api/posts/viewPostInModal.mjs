@@ -1,5 +1,5 @@
 import { getSinglePost } from "./getSinglePost.mjs";
-import { singlePostTamplate } from "./singlePostTemplate.mjs";
+import { singlePostTemplate } from "./singlePostTemplate.mjs";
 import { sharePostLink } from "../../handlers/share.mjs";
 
 export async function viewSinglePostModal() {
@@ -48,7 +48,7 @@ async function openSinglePostModal(id, singlePostModal) {
 
       const modalCardContainer = singlePostModal.querySelector(".modalCardContainer");
 
-      modalCardContainer.innerHTML = singlePostTamplate(post.data);
+      modalCardContainer.innerHTML = singlePostTemplate(post.data);
       
       singlePostModal.showModal();
 

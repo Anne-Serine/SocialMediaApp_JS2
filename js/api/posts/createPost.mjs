@@ -1,16 +1,16 @@
 import { API_BASE, API_POSTS, API_KEY } from "../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
-export async function createPost(title, content, image) {
+export async function createPost(title, content, image, tags) {
   let object
 
   if(image) {
     object = {
-      title: title, body: content, media: { url: image, alt: "" }
+      title: title, body: content, media: { url: image, alt: "" }, tags: tags.split(" ")
     }
   } else {
     object = {
-      title: title, body: content
+      title: title, body: content, tags: tags.split(" ")
     }
   }
 
@@ -23,6 +23,7 @@ export async function createPost(title, content, image) {
     method: "POST",
     body: JSON.stringify(object),
   });
-  
+
   return await response.json();
 }
+

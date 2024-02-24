@@ -1,6 +1,5 @@
-export function postTamplate(post, userName) {
+export function postTemplate(post, userName) {
   const formattedDate = new Date(post.created);
-
 
   return `<div class="card image-card p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
   <div class="row">
@@ -23,6 +22,9 @@ export function postTamplate(post, userName) {
         <div class="row d-none d-md-block">
           <p>${post.body}</p>
         </div>
+        <div class="row fw-semibold">
+          ${generateTags(post.tags)}
+        </div>
         <div class="d-flex justify-content-end">
           <button value=${post.id} class="btn btn-secondary me-2" data-view-post-id="${post.id}">View</button>
           ${userName === post.author.name ? 
@@ -36,3 +38,16 @@ export function postTamplate(post, userName) {
   </div>
 </div>`
 }
+
+
+export function generateTags(tags) {
+  const tagsContainer = document.createElement("div");
+
+  for(let i = 0; i < tags.length; i++) {
+    if(tags[i]) {
+      tagsContainer.textContent += `<span>#${tags[i]}</span>`
+    }
+  }
+  return tagsContainer.innerText
+}
+
