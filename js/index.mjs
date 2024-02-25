@@ -5,7 +5,7 @@ import { setCreatePostListener } from "./handlers/post.mjs";
 import { postFeed } from "./api/feed/postFeed.mjs";
 import { setDeletePostListener } from "./handlers/delete.mjs";
 import { searchInput } from "./handlers/search.mjs";
-
+import { resetTagFilter } from "./handlers/resetTagFilter.mjs";
 
 
 // import { createAPIKey } from "./api/constants.mjs";
@@ -37,5 +37,7 @@ await postFeed();
 
 await setDeletePostListener();
 
-searchInput()
+searchInput();
+
+resetTagFilter();
 

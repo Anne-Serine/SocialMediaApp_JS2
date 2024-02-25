@@ -20,7 +20,7 @@ export function postTemplate(post, userName) {
           <p>${formattedDate.toLocaleString()}</p>
         </div>
         <div class="row d-none d-md-block">
-          <p>${post.body}</p>
+          <p>${post.body ? post.body : ""}</p>
         </div>
         <div class="row fw-semibold">
           ${generateTags(post.tags)}
