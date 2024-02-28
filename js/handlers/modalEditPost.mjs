@@ -1,6 +1,4 @@
-import { getPosts } from "../api/posts/getPosts.mjs";
 import { getSinglePost } from "../api/posts/getSinglePost.mjs";
-import { postTamplate } from "../api/posts/postTemplate.mjs";
 import { editPost } from "../api/posts/editPost.mjs";
 import { postFeed } from "../api/feed/postFeed.mjs";
 
@@ -46,7 +44,7 @@ export function modalEditPost() {
     const data = Object.fromEntries(formData.entries());
 
     // console.log(data)
-    const test = await editPost(data.title, data.content, data.image, data.postId)
+    const test = await editPost(data.title, data.content, data.image, data.tags, data.postId)
     console.log(test)
     await postFeed();
     modal.close(); 

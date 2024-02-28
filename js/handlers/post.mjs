@@ -10,9 +10,11 @@ export async function setCreatePostListener() {
       const form = event.target;
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+
+      const tags = data.tags.trim()
   
       // console.log(data)
-      createPost(data.title, data.content, data.image).then((postData) => {
+      createPost(data.title, data.content, data.image, tags).then((postData) => {
         // console.log(postData)
         window.location.href = "/feed"
       })
