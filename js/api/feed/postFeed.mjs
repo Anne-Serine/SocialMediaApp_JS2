@@ -1,8 +1,9 @@
 import { setDeletePostListener } from "../../handlers/delete.mjs";
 import { modalEditPost } from "../../handlers/modalEditPost.mjs";
-import { getPostByTag, makeTagsFilter } from "../posts/filterPosts.mjs";
+import { logoutBtn } from "../auth/logout.mjs";
+import { makeTagsFilter } from "../posts/filterPosts.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
-import { generateTags, postTemplate } from "../posts/postTemplate.mjs";
+import { postTemplate } from "../posts/postTemplate.mjs";
 import { viewSinglePostModal } from "../posts/viewPostInModal.mjs";
 
 export async function postFeed() {
@@ -32,6 +33,7 @@ export async function postFeed() {
       viewSinglePostModal();
       modalEditPost();
       setDeletePostListener();
+      logoutBtn()
     })
   }
 }
