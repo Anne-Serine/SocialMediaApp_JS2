@@ -15,7 +15,7 @@ export async function setRegisterFormListener() {
         if(d.error) {
           // TODO: Output d.error message in html
         } else {
-          window.location.href = "/"
+          window.location.href = "/";
         }
       });
     })
