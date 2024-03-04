@@ -3,7 +3,7 @@ import { setLoginFormListener } from "./handlers/login.mjs";
 import { load } from "./storage/index.mjs";
 import { setCreatePostListener } from "./handlers/post.mjs";
 import { postFeed } from "./api/feed/postFeed.mjs";
-import { setDeletePostListener } from "./handlers/delete.mjs";
+import { setDeletePostListener } from "./handlers/deleteHandler.mjs";
 import { searchInput } from "./handlers/search.mjs";
 import { resetTagFilter } from "./handlers/resetTagFilter.mjs";
 

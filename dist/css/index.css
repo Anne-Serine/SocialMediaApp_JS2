@@ -11919,15 +11919,17 @@ button,
   max-width: unset;
 }
 
-.post-image {
+.avatar-image {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   aspect-ratio: 1/1;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
-.post-image img {
+.avatar-image img {
   object-fit: cover;
   min-width: 100%;
   min-height: 100%;
