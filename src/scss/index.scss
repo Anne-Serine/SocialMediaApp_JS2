@@ -31,7 +31,7 @@
 }
 
 .custom-thumbnail {
-  max-width: 58px;
+  max-width: 42px;
 }
 
 .font-icon {
@@ -107,4 +107,8 @@ dialog::backdrop {
 
 .form-control::placeholder {
   opacity: 50%;
+}
+
+.create-content-area {
+  height: 100px;
 }

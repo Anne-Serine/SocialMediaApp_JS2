@@ -40,7 +40,7 @@ export function postTemplate(post, userName) {
               <p>${post.body ? post.body : ""}</p>
             </div>
             <div class="row">
-              <div class="col d-flex gap-2 text-info-emphasis">
+              <div class="col d-flex gap-2 text-info-emphasis flex-wrap wrap">
                 ${generateTags(post.tags)}
               </div>
             </div>
