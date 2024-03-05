@@ -1,4 +1,4 @@
-import { setDeletePostListener } from "../../handlers/delete.mjs";
+import { setDeletePostListener } from "../../handlers/deleteHandler.mjs";
 import { modalEditPost } from "../../handlers/modalEditPost.mjs";
 import { logoutBtn } from "../auth/logout.mjs";
 import { makeTagsFilter } from "../posts/filterPosts.mjs";

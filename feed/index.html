@@ -38,11 +38,51 @@
     </div>
   </header>
 
-  <div class="container mt-3 mb-5">
+  <div class="container mt-5 mb-5">
 
-    <div class="row column-gap-5">
-      <div class="col d-flex justify-content-center d-none d-xl-block">
-        <h2 class="h4 col">Mobile Photography Tips</h2>
+    <div class="row column-gap-4">
+      <div class="col d-flex justify-content-center d-none d-md-block">
+
+        <div class="d-flex align-items-center gap-2">
+          <h2 class="h5 d-flex align-items-center gap-2"><i class="fa-solid fa-plus fs-semi-bold-6"></i>new post</h2>
+        </div>
+        
+        <form class="card p-3 bg-light mb-4" id="createPost" method="post" action="">
+          <div class="form-group mb-2">
+            <label for="name">Title</label>
+            <input class="form-control" type="text" name="title" id="title" required title="Please enter a title for your post" placeholder="Post title...">
+          </div>
+          <div class="form-group mb-2">
+            <label for="content">Content</label>
+            <textarea class="form-control create-content-area" name="content" id="content" placeholder="Max 280 characters..." maxLength="280"></textarea>
+            <p class="message-maxlength"></p>
+          </div>
+          <div class="form-group mb-2">
+            <label for="image">Image</label>
+            <input class="form-control" type="url" name="image" id="image" title="Here you can add an image" placeholder="Place url here...">
+          </div>
+          <div class="form-group mb-2">
+            <label for="tags">Tags</label>
+            <input class="form-control" type="text" name="tags" id="tags" title="Enter tags for your post" placeholder="E.g ''photo travel''">
+          </div>
+          <button type="submit" class="btn btn-primary col-6 my-3" id="registerSubmitBtn">Upload</button>
+        </form>
+        <hr class="my-5">
+        <div class="row">
+          <div class="col-6">
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" id="filterByTagsBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                Filter by tags
+              </button>
+              <ul class="dropdown-menu p-2" id="tagFilterContainer"></ul>
+            </div>
+          </div>
+          <div class="col ms-4 d-flex justify-content-end">
+            <button class="btn btn-secondary" id="resetTagFilter">Refresh</button>
+          </div>
+        </div>
+        <hr class="my-5">
+        <h2 class="h5 col">Photography Tips</h2>
         <div class="card image-card mb-2">
           <div class="row">
             <div class="col d-flex justify-content-start m-2">
@@ -69,32 +109,33 @@
             </div>
           </div>
         </div>
-        <a href="#">View more tips</a>
+        <a href="#" class="link-underline link-underline-opacity-0">View more tips<i class="fa-solid fa-caret-down ms-3"></i></a>
       </div>
 
-      <div class="col-lg-6 col-md-8 col-sm-10 col mx-auto">
-        <h1 class="h3">Create new content</h1>
-        <form id="createPost" method="post" action="">
-          <div class="form-group mb-3">
+      <div class="col-xl-6 col-lg-6 col-md-7 col-sm-10 col mx-auto">
+        <!-- <h1 class="h3">Create new content</h1>
+        <form class="card p-3 bg-light" id="createPost" method="post" action="">
+          <div class="form-group mb-2">
             <label for="name">Title</label>
-            <input class="form-control" type="text" name="title" id="title" required title="Please enter a title for your post">
+            <input class="form-control" type="text" name="title" id="title" required title="Please enter a title for your post" placeholder="Enter a title for your post">
           </div>
-          <div class="form-group mb-3">
+          <div class="form-group mb-2">
             <label for="content">Content</label>
-            <textarea class="form-control" name="content" id="content" rows="4" placeholder="Write here..."></textarea>
+            <textarea class="form-control create-content-area" name="content" id="content" placeholder="Write here..." maxLength="280"></textarea>
+            <p class="message-maxlength"></p>
           </div>
-          <div class="form-group mb-3">
+          <div class="form-group mb-2">
             <label for="image">Image</label>
-            <input class="form-control" type="url" name="image" id="image" title="Here you can add an image">
+            <input class="form-control" type="url" name="image" id="image" title="Here you can add an image" placeholder="Place url here...">
           </div>
-          <div class="form-group mb-3">
+          <div class="form-group mb-2">
             <label for="tags">Tags</label>
-            <input class="form-control" type="text" name="tags" id="tags" title="Enter tags for your post">
+            <input class="form-control" type="text" name="tags" id="tags" title="Enter tags for your post" placeholder="E.g ''photography travel food''">
           </div>
-          <button type="submit" class="btn btn-primary px-4 py-2" id="registerSubmitBtn">Upload</button>
-        </form>
+          <button type="submit" class="btn btn-primary col-3 my-3" id="registerSubmitBtn">Upload</button>
+        </form> -->
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-6">
             <div class="dropdown mt-4 mb-5">
               <button class="btn btn-secondary dropdown-toggle" id="filterByTagsBtn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -106,12 +147,12 @@
           <div class="col-6">
             <button class="btn btn-secondary mt-4 mb-5" id="resetTagFilter">Reset tags</button>
           </div>
-        </div>
+        </div> -->
         
 
-        <h2 class="h3">Latest posts</h2>
-        <div id="statusMessage" class="text-success py-3"></div>
-        <div id="postFeed"></div>
+        <h1 class="h3">Latest posts</h1>
+        <div id="statusMessage" class="text-success"></div>
+        <div class="mt-3" id="postFeed"></div>
         <dialog class="p-0 border-1" id="modal">
           <div class="p-3">
             <button class="close-modal" title="close">&times;</button>
@@ -145,28 +186,67 @@
 
       </div>
 
-      <div class="col d-flex justify-content-center d-none d-xl-block mb-5">
+      <div class="col d-flex justify-content-center d-none d-lg-block mb-5">
         <div>
           <img src="/images/mmp.svg" class="w-85" alt="#">
         </div>
-        <ul class="list-group list-group-flush sticky-lg-top mt-2">
-          <li class="list-group-item d-flex">
-            <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-            <p class="ms-2 mb-0 d-flex align-items-center">@Matty</p></li>
-          <li class="list-group-item d-flex">
-            <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-            <p class="ms-2 mb-0 d-flex align-items-center">@Laura</p></li>
-          <li class="list-group-item d-flex">
-            <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-            <p class="ms-2 mb-0 d-flex align-items-center">@Christian</p></li>
-          <li class="list-group-item d-flex">
-            <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-            <p class="ms-2 mb-0 d-flex align-items-center">@Frida</p></li>
-          <li class="list-group-item d-flex">
-            <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
-            <p class="ms-2 mb-0 d-flex align-items-center">@Mindy</p></li>
-          <li class="list-group-item">
-            <a href="#">View all connections</a>
+        <ul class="list-group list-group-flush sticky-lg-top mt-4">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Matt</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Frida</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Christian</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Edward</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Malene</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+              <a href="#"><img src="/images/user.png" class="img-thumbnail custom-thumbnail rounded-circle" alt="a profile picture thumbnail"></a>
+              <p class="ms-2 mb-0 d-flex align-items-center">@Sara</p>
+            </div>
+            <div>
+              <button class="btn btn-secondary py-1" disabled>Follow</button>
+            </div>
+          </li>
+          <li class="list-group-item mt-4">
+            <a href="#" class="link-underline link-underline-opacity-0">View all connections<i class="fa-solid fa-caret-down ms-3"></i></a>
           </li>
         </ul>
       </div>
