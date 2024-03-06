@@ -6,11 +6,11 @@ export async function createPost(title, content, image, tags) {
 
   if(image) {
     object = {
-      title: title, body: content, media: { url: image, alt: "" }, tags: tags.split(" ")
+      title: title, body: content, media: { url: image, alt: "" }, tags: tags.replaceAll(",", " ").split(" ")
     }
   } else {
     object = {
-      title: title, body: content, tags: tags.split(" ")
+      title: title, body: content, tags: tags.replaceAll(",", " ").split(" ")
     }
   }
 

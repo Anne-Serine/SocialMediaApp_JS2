@@ -9,31 +9,35 @@ import { viewSinglePostModal } from "../posts/viewPostInModal.mjs";
 export async function postFeed() {
   const postFeed = document.querySelector("#postFeed");
 
+
   if (postFeed) {
     await getPosts().then((posts) => {
 
-      // console.log(posts)
       postFeed.innerHTML = "";
 
-      const storage = localStorage.getItem("profile");
-      const profileObj = JSON.parse(storage);
-      const tagsArray = new Set();
+      if(posts.data) {
+        const storage = localStorage.getItem("profile");
+        const profileObj = JSON.parse(storage);
+        const tagsArray = new Set();
 
-      for (const post of posts.data) {
-        postFeed.innerHTML += postTemplate(post, profileObj.name)
+        for (const post of posts.data) {
+          postFeed.innerHTML += postTemplate(post, profileObj.name)
 
-        for( const tag of post.tags) {
-          if(tag) {
-            tagsArray.add(tag);
+          for( const tag of post.tags) {
+            if(tag) {
+              tagsArray.add(tag);
+            }
           }
         }
+        makeTagsFilter(tagsArray);
+        viewSinglePostModal();
+        modalEditPost();
+        setDeletePostListener();
+      } else {
+        postFeed.innerHTML = `<div class="alert alert-danger" role="alert">
+        ${posts}
+        </div>`
       }
-
-      makeTagsFilter(tagsArray);
-      viewSinglePostModal();
-      modalEditPost();
-      setDeletePostListener();
-      logoutBtn()
     })
   }
 }
