@@ -2,6 +2,9 @@ import { API_BASE, API_FILTERING, API_KEY, API_PARAMS, API_POSTS } from "../cons
 import { load } from "../../storage/index.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 
+/**
+ * 
+ */
 export function makeTagsFilter(tagsArray) {
   const tagFilterContainer = document.querySelector("#tagFilterContainer");
   const tags = tagsArray;

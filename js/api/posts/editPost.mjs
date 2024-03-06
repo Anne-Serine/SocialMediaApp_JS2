@@ -7,11 +7,11 @@ export async function editPost(title, content, image, tags, id) {
 
   if(image) {
     object = {
-      title: title, body: content, media: { url: image, alt: "" }, tags: tags
+      title: title, body: content, media: { url: image, alt: "" }, tags: tags.replaceAll(",", " ").split(" ")
     };
   } else {
     object = {
-      title: title, body: content, tags: tags
+      title: title, body: content, tags: tags.replaceAll(",", " ").split(" ")
     };
   }
   

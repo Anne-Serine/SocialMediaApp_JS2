@@ -14,21 +14,28 @@ export function modalEditPost() {
 
       const post = await getSinglePost(postId);
 
-      const form = document.querySelectorAll("#editPost *");
-      form.forEach(input => {
-        if(input.id === "editTitle") {
-          input.value = post.data.title;
-        }
-        if(input.id === "editContent") {
-          input.value = post.data.body;
-        }
-        if(input.id === "editImageUrl" && post.data.media) {
-          input.value = post.data.media.url;
-        }
-        if(input.id === "postId") {
-          input.value = postId;
-        }
-      })
+      if(post.data) {
+        const form = document.querySelectorAll("#editPost *");
+        form.forEach(input => {
+          if(input.id === "editTitle") {
+            input.value = post.data.title;
+          }
+          if(input.id === "editContent") {
+            input.value = post.data.body;
+          }
+          if(input.id === "editImageUrl" && post.data.media) {
+            input.value = post.data.media.url;
+          }
+          if(input.id === "editTags") {
+            input.value = post.data.tags.toString().replaceAll(",", " ");
+          }
+          if(input.id === "postId") {
+            input.value = postId;
+          }
+        })
+      } else {
+        modal.innerHTML += `<div class="alert alert-danger m-3" role="alert">${post}</div>`
+      }
       modal.showModal();
     })
   })
