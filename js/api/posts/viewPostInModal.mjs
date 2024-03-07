@@ -45,12 +45,9 @@ export async function viewSinglePostModal() {
 
 async function openSinglePostModal(id, singlePostModal) {
   const post = await getSinglePost(id);
+  const modalCardContainer = singlePostModal.querySelector(".modalCardContainer");
 
-      const modalCardContainer = singlePostModal.querySelector(".modalCardContainer");
-
-      modalCardContainer.innerHTML = singlePostTemplate(post.data);
-      
-      singlePostModal.showModal();
-
-      sharePostLink(singlePostModal);
+  modalCardContainer.innerHTML = singlePostTemplate(post.data);
+  singlePostModal.showModal();
+  sharePostLink(singlePostModal);
 }

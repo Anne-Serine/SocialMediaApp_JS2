@@ -65,6 +65,7 @@
             <label for="tags">Tags</label>
             <input class="form-control" type="text" name="tags" id="tags" title="Enter tags for your post" placeholder="E.g ''photo travel''">
           </div>
+          <div class="alert d-none" id="createPostAlertMessage" role="alert"></div>
           <button type="submit" class="btn btn-primary col-6 my-3" id="registerSubmitBtn">Upload</button>
         </form>
         <hr class="my-5">
@@ -177,6 +178,7 @@
                 <input class="form-control" type="text" name="tags" id="editTags" title="Here you can add tags">
               </div>
               <input type="hidden" name="postId" id="postId">
+              <div class="alert d-none" id="editPostAlertContainer" role="alert"></div>
               <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
             </form>
           </div>

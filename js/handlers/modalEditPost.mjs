@@ -1,6 +1,7 @@
 import { getSinglePost } from "../api/posts/getSinglePost.mjs";
 import { editPost } from "../api/posts/editPost.mjs";
 import { postFeed } from "../api/feed/postFeed.mjs";
+import { showStatusMessage } from "./showStatusMessage.mjs";
 
 export function modalEditPost() {
   const modal = document.querySelector("#modal");
@@ -51,10 +52,13 @@ export function modalEditPost() {
     const data = Object.fromEntries(formData.entries());
 
     // console.log(data)
-    const test = await editPost(data.title, data.content, data.image, data.tags, data.postId)
-    console.log(test)
-    await postFeed();
-    modal.close(); 
+    const post = await editPost(data.title, data.content, data.image, data.tags, data.postId)
+    if(post.data) {
+      await postFeed();
+      modal.close(); 
+    } else {
+      showStatusMessage("alert-danger", post, "#editPostAlertContainer")
+    }
   })
   
   modal.addEventListener("click", (event) => {

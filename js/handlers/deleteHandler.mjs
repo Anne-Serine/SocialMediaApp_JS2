@@ -1,5 +1,6 @@
 import { postFeed } from "../api/feed/postFeed.mjs";
 import { deletePost } from "../api/posts/deletePost.mjs";
+import { showStatusMessage } from "./showStatusMessage.mjs";
 
 /**
  * Sets up event listeners for delete post buttons.
@@ -32,9 +33,9 @@ export function setDeletePostListener() {
 
         if(deletePostResponse.ok) {
           const message = "The post was successfully deleted."
-          showStatusMessage("alert-success", message)
+          showStatusMessage("alert-success", message, "#statusMessage", true)
         } else {
-          showStatusMessage("alert-danger", deletePostResponse + " - Could not delete post")
+          showStatusMessage("alert-danger", deletePostResponse + " - Could not delete post", "#statusMessage", true)
         }
         await postFeed();
       }
@@ -63,26 +64,3 @@ function confirmDelete() {
   }
 }
 
-
-/**
- * Displays a status message on the webpage.
- * @param {string} alertType - The type of alert message to display. It can be "alert-success" or any other custom alert type.
- * @example
- * ```js
- * // Display a success message
- * showStatusMessage("alert-success");
- *
- * // Display an error message
- * showStatusMessage("alert-danger");
- * ```
- */
-function showStatusMessage(alertType, message) {
-  const statusMessage = document.querySelector("#statusMessage");
-
-  statusMessage.classList.add(alertType);
-  statusMessage.classList.remove("d-none");
-  statusMessage.innerHTML = message;
-  setTimeout(() => {
-    statusMessage.classList.add("d-none");
-  }, 4000)
-}

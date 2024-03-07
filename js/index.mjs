@@ -30,13 +30,9 @@ if (path === "/index.html" || path === "/") {
   }
 }
 
-// await setLoginFormListener();
-// await setRegisterFormListener();
-
 
 
 await setCreatePostListener();
-// console.log(createAPIKey())
 
 await postFeed();
 
