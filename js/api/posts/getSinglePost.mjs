@@ -39,9 +39,3 @@ export async function getSinglePost(id) {
       return error;
   }
 }
-
-
-
-
-
-

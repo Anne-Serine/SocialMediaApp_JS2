@@ -26,8 +26,6 @@ export async function getPosts() {
         "Content-Type": "application/json"
       },
     });
-  
-  
     if (response.ok) {
       return await response.json();
     } else {

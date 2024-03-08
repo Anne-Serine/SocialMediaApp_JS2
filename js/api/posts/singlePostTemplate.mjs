@@ -5,7 +5,6 @@ export function singlePostTemplate(post) {
 
   return `<div class="card image-card border-0 p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
       ${post.media ? `<img src="${post.media.url}" class="mb-2" alt="${post.media.alt}">` : "No image"}
-
     <div class="container">
       <div class="row">
         <p class="h5 text-secondary">@${post.author.name}</p>

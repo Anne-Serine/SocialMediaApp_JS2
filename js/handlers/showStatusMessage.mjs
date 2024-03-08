@@ -1,6 +1,9 @@
 /**
- * Displays a status message on the webpage.
- * @param {string} alertType - The type of alert message to display. It can be "alert-success" or any other custom alert type.
+ * Displays a status message on the specified element with the given message and styling.
+ * @param {string} alertType - The type of alert to be displayed (e.g., "alert-success", "alert-danger").
+ * @param {string} message - The message to be displayed in the status message.
+ * @param {string} id - The ID of the element where the status message will be displayed.
+ * @param {boolean} autoHide - Determines whether the status message should automatically hide after a certain time.
  * @example
  * ```js
  * // Display a success message

@@ -54,6 +54,7 @@ export function modalEditPost() {
     // console.log(data)
     const post = await editPost(data.title, data.content, data.image, data.tags, data.postId)
     if(post.data) {
+      showStatusMessage("alert-success", "Your post was updated", "#editPostAlertContainer")
       await postFeed();
       modal.close(); 
     } else {

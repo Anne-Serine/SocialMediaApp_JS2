@@ -27,6 +27,7 @@
             <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
             <div class="z-2 position-absolute top-100 w-100 overflow-y-auto max-height-40vh shadow">
               <ul id="searchResults" class="list-group"></ul>
+              <div class="alert d-none" id="searchAlertMessage" role="alert"></div>
             </div>
           </div>
           <div class="col d-flex justify-content-end order-2 order-lg-3">
@@ -69,13 +70,16 @@
           <button type="submit" class="btn btn-primary col-6 my-3" id="registerSubmitBtn">Upload</button>
         </form>
         <hr class="my-5">
+        <div class="alert d-none" id="filterTagsAlertMessage" role="alert"></div>
         <div class="row">
           <div class="col-6">
             <div class="dropdown">
               <button class="btn btn-dark dropdown-toggle" id="filterByTagsBtn" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter by tags
               </button>
-              <ul class="dropdown-menu p-2" id="tagFilterContainer"></ul>
+              <div class="dropdown-menu p-2">
+                <ul class="list-unstyled" id="tagFilterContainer"></ul>
+              </div>
             </div>
           </div>
           <div class="col ms-4 d-flex justify-content-end">

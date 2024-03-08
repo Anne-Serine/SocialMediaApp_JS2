@@ -19,7 +19,7 @@ export async function editPost(title, content, image, tags, id) {
       method: "PUT",
       body: JSON.stringify(object),
       headers: {
-        Authorization: `Bearer ${load("tokenl")}`,
+        Authorization: `Bearer ${load("token")}`,
         "X-Noroff-API-Key": API_KEY,
         "Content-Type": "application/json"
       },
