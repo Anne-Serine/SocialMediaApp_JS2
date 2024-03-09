@@ -6,10 +6,8 @@ export async function viewSinglePostModal() {
   const singlePostModal = document.querySelector("#viewSinglePostModal");
   const viewPostBtns = document.querySelectorAll('[data-view-post-id]');
   const viewPostCloseBtn = singlePostModal.querySelector(".close-view-post-modal");
-
   const parameterString = window.location.search;
   const searchParameters = new URLSearchParams(parameterString);
-  
   const id = searchParameters.get("postId")
 
   if(id) {
@@ -17,7 +15,6 @@ export async function viewSinglePostModal() {
   }
   viewPostBtns.forEach(button => {
     button.addEventListener("click", async () => {
-
       const postId = button.dataset.viewPostId
 
       openSinglePostModal(postId, singlePostModal);
@@ -25,32 +22,24 @@ export async function viewSinglePostModal() {
       window.history.replaceState(null, null, "?" + searchParameters.toString())
     })
   })
-
   viewPostCloseBtn.addEventListener("click", () => {
     singlePostModal.close();
     window.history.replaceState(null, null, "/feed");
   })
   singlePostModal.addEventListener("click", (event) => {
-  
     if (event.target === singlePostModal) {
       singlePostModal.close();
       window.history.replaceState(null, null, "/feed");
     }
-  
   });
-  
 }
-
 
 
 async function openSinglePostModal(id, singlePostModal) {
   const post = await getSinglePost(id);
+  const modalCardContainer = singlePostModal.querySelector(".modalCardContainer");
 
-      const modalCardContainer = singlePostModal.querySelector(".modalCardContainer");
-
-      modalCardContainer.innerHTML = singlePostTemplate(post.data);
-      
-      singlePostModal.showModal();
-
-      sharePostLink(singlePostModal);
+  modalCardContainer.innerHTML = singlePostTemplate(post.data);
+  singlePostModal.showModal();
+  sharePostLink(singlePostModal);
 }

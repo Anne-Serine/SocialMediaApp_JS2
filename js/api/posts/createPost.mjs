@@ -14,16 +14,25 @@ export async function createPost(title, content, image, tags) {
     }
   }
 
-  const response = await fetch(API_BASE + API_POSTS, {
-    headers: {
-      Authorization: `Bearer ${load("token")}`,
-      "X-Noroff-API-Key": API_KEY,
-      "Content-Type": "application/json"
-    },
-    method: "POST",
-    body: JSON.stringify(object),
-  });
-
-  return await response.json();
+  try {
+    const response = await fetch(API_BASE + API_POSTS, {
+      headers: {
+        Authorization: `Bearer ${load("token")}`,
+        "X-Noroff-API-Key": API_KEY,
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify(object),
+    });
+    console.log(response)
+    if(response.ok) {
+      return await response.json();
+    } else {
+      if (response.status === 403) throw new Error("403, Forbidden, Was not able to create post");
+      throw new Error(response.status);
+    }
+  } catch (error) {
+    return error;
+  }
 }
 

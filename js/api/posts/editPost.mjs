@@ -14,16 +14,23 @@ export async function editPost(title, content, image, tags, id) {
       title: title, body: content, tags: tags.replaceAll(",", " ").split(" ")
     };
   }
-  
-  const response = await fetch(API_BASE + API_POSTS + `/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(object),
-    headers: {
-      Authorization: `Bearer ${load("token")}`,
-      "X-Noroff-API-Key": API_KEY,
-      "Content-Type": "application/json"
-    },
-  });
-  
-  return await response.json();
+  try {
+    const response = await fetch(API_BASE + API_POSTS + `/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(object),
+      headers: {
+        Authorization: `Bearer ${load("token")}`,
+        "X-Noroff-API-Key": API_KEY,
+        "Content-Type": "application/json"
+      },
+    });
+    console.log(response)
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error(response.status + " Was not able to edit post.");
+    }
+  } catch (error) {
+    return error;
+  }
 }

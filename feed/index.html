@@ -27,6 +27,7 @@
             <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
             <div class="z-2 position-absolute top-100 w-100 overflow-y-auto max-height-40vh shadow">
               <ul id="searchResults" class="list-group"></ul>
+              <div class="alert d-none" id="searchAlertMessage" role="alert"></div>
             </div>
           </div>
           <div class="col d-flex justify-content-end order-2 order-lg-3">
@@ -65,16 +66,20 @@
             <label for="tags">Tags</label>
             <input class="form-control" type="text" name="tags" id="tags" title="Enter tags for your post" placeholder="E.g ''photo travel''">
           </div>
+          <div class="alert d-none" id="createPostAlertMessage" role="alert"></div>
           <button type="submit" class="btn btn-primary col-6 my-3" id="registerSubmitBtn">Upload</button>
         </form>
         <hr class="my-5">
+        <div class="alert d-none" id="filterTagsAlertMessage" role="alert"></div>
         <div class="row">
           <div class="col-6">
             <div class="dropdown">
               <button class="btn btn-dark dropdown-toggle" id="filterByTagsBtn" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter by tags
               </button>
-              <ul class="dropdown-menu p-2" id="tagFilterContainer"></ul>
+              <div class="dropdown-menu p-2">
+                <ul class="list-unstyled" id="tagFilterContainer"></ul>
+              </div>
             </div>
           </div>
           <div class="col ms-4 d-flex justify-content-end">
@@ -177,6 +182,7 @@
                 <input class="form-control" type="text" name="tags" id="editTags" title="Here you can add tags">
               </div>
               <input type="hidden" name="postId" id="postId">
+              <div class="alert d-none" id="editPostAlertContainer" role="alert"></div>
               <button type="submit" class="btn btn-primary px-4 py-2" id="saveSubmitBtn">Save</button>
             </form>
           </div>

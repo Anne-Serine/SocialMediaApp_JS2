@@ -25,7 +25,6 @@ export function postTemplate(post, userName) {
                   : ""
                 }
               </div>
-              
             </div>
             <div class="row mb-2">
               ${post.media ? `<img src="${post.media.url}" class="img-fluid w-100" alt="${post.media.alt}">` : ""}
@@ -64,7 +63,6 @@ export function postTemplate(post, userName) {
               <textarea class="col-10 border p-2 rounded outline-none" placeholder="Add a comment..."></textarea>
               <i class="fa-solid fa-share col-1 fs-4"></i>
             </div>
-            
           </div>`
 }
 

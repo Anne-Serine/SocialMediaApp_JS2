@@ -1,7 +1,6 @@
 export function sharePostLink(singlePostModal) {
   const shareBtn = singlePostModal.querySelector('[data-share-btn-id]');
   
-  // console.log(url)
   shareBtn.addEventListener("click", () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url);
@@ -10,5 +9,4 @@ export function sharePostLink(singlePostModal) {
       shareBtn.innerText = "Share"
     }, 2000)
   })
-  
 }
