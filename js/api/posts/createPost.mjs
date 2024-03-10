@@ -24,7 +24,6 @@ export async function createPost(title, content, image, tags) {
       method: "POST",
       body: JSON.stringify(object),
     });
-    console.log(response)
     if(response.ok) {
       return await response.json();
     } else {

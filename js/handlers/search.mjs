@@ -13,7 +13,6 @@ export function searchInput() {
       if(value.length > 0) {
         const posts = await searchPosts(value)
         
-        console.log(posts)
         if(posts.data && posts.data.length > 0) {
           for (let i = 0; i < posts.data.length; i++) {
             searchResults.innerHTML += `<li class="list-group-item text-wrap bg-light">
@@ -31,4 +30,3 @@ export function searchInput() {
     })
   }
 }
-

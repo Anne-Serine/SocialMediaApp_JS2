@@ -1,5 +1,6 @@
 import { postFeed } from "../api/feed/postFeed.mjs";
 import { deletePost } from "../api/posts/deletePost.mjs";
+import { load } from "../storage/index.mjs";
 import { showStatusMessage } from "./showStatusMessage.mjs";
 
 /**
@@ -24,7 +25,8 @@ import { showStatusMessage } from "./showStatusMessage.mjs";
  */
 export function setDeletePostListener() {
   const deletePostBtns = document.querySelectorAll('[data-delete-post-id]');
-  
+  const userName = load("profile");
+
   deletePostBtns.forEach(button => {
     button.addEventListener("click", async () => {
       if(confirmDelete()) {
@@ -37,7 +39,7 @@ export function setDeletePostListener() {
         } else {
           showStatusMessage("alert-danger", deletePostResponse + " - Could not delete post", "#statusMessage", true)
         }
-        await postFeed();
+        await postFeed(userName.name);
       }
     })
   })

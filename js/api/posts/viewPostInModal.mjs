@@ -9,6 +9,7 @@ export async function viewSinglePostModal() {
   const parameterString = window.location.search;
   const searchParameters = new URLSearchParams(parameterString);
   const id = searchParameters.get("postId")
+  const path = location.pathname;
 
   if(id) {
     openSinglePostModal(id, singlePostModal);
@@ -25,12 +26,20 @@ export async function viewSinglePostModal() {
   })
   viewPostCloseBtn.addEventListener("click", () => {
     singlePostModal.close();
-    window.history.replaceState(null, null, "/feed");
+    if(path === "/profile/" || path === "/profile/index.html") {
+      window.history.replaceState(null, null, "/profile");
+    } else {
+      window.history.replaceState(null, null, "/feed");
+    }
   })
   singlePostModal.addEventListener("click", (event) => {
     if (event.target === singlePostModal) {
       singlePostModal.close();
-      window.history.replaceState(null, null, "/feed");
+      if(path === "/profile/" || path === "/profile/index.html") {
+        window.history.replaceState(null, null, "/profile");
+      } else {
+        window.history.replaceState(null, null, "/feed");
+      }
     }
   });
 }
