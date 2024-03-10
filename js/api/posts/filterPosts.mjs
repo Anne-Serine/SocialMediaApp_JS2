@@ -2,6 +2,9 @@ import { API_BASE, API_FILTERING, API_KEY, API_PARAMS, API_POSTS } from "../cons
 import { load } from "../../storage/index.mjs";
 import { postTemplate } from "./postTemplate.mjs";
 import { showStatusMessage } from "../../handlers/showStatusMessage.mjs";
+import { viewSinglePostModal } from "./viewPostInModal.mjs";
+import { modalEditPost } from "../../handlers/modalEditPost.mjs";
+import { setDeletePostListener } from "../../handlers/deleteHandler.mjs";
 
 
 export async function getPostByTag(tagValue) {
@@ -50,9 +53,13 @@ export function makeTagsFilter(tagsArray) {
         filteredPostsContainer.innerHTML = "";
   
         if(postsByTag.data) {
+          const storage = load("profile");
           for (const post of postsByTag.data) {
-            filteredPostsContainer.innerHTML += postTemplate(post)
+            filteredPostsContainer.innerHTML += postTemplate(post, storage.name)
           }
+          viewSinglePostModal();
+          modalEditPost();
+          setDeletePostListener();
         } else {
           showStatusMessage("alert-danger", postsByTag, "#filterTagsAlertMessage");
         }

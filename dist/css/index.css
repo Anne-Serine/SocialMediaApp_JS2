@@ -11874,12 +11874,16 @@ textarea.form-control-lg {
   max-width: 42px;
 }
 
+.custom-nav-icon {
+  max-width: 42px;
+}
+
 .font-icon {
   font-size: 1.5rem;
-  color: #212529;
+  color: #eb8c59;
 }
 .font-icon:hover {
-  color: #eb8c59;
+  color: #f8f9fa;
 }
 
 .image-card {
@@ -11950,6 +11954,11 @@ dialog::backdrop {
 
 .create-content-area {
   height: 100px;
+}
+
+a.disabled {
+  color: gray;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=index.css.map */

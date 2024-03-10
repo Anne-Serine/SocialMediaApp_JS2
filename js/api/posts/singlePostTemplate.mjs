@@ -1,27 +1,31 @@
 import { generateTags } from "./postTemplate.mjs";
 
 export function singlePostTemplate(post) {
-  const formattedDate = new Date(post.created);
+  // Destructuring post object
+  const {created, media, author, title, body, tags, id} = post;
+  const formattedDate = new Date(created);
 
-  return `<div class="card image-card border-0 p-3 d-flex justify-content-center mb-2" id="postTemplateCard">
-      ${post.media ? `<img src="${post.media.url}" class="mb-2" alt="${post.media.alt}">` : "No image"}
-    <div class="container">
-      <div class="row">
-        <p class="h5 text-secondary">@${post.author.name}</p>
+  return `<div class="container card image-card border-0 d-flex justify-content-center" id="postTemplateCard">
+      ${media ? `<img src="${media.url}" class="mb-2" alt="${media.alt}">` : "No image"}
+    <div class="mb-4">
+      <div class="row mb-3">
+        <p class="h5 text-secondary fs-6">Published by: @${author.name}</p>
       </div>
       <div class="row">
-        <h3 class="h4">${post.title}</h3>
+        <h3 class="h4">${title}</h3>
       </div>
       <div class="row">
-        <p>${formattedDate.toLocaleString()}</p>
+        <p>${formattedDate.toLocaleDateString()}</p>
       </div>
       <div class="row">
-        <p>${post.body}</p>
+        <p>${body}</p>
       </div>
       <div class="row fw-semibold">
-        ${generateTags(post.tags)}
+        ${generateTags(tags)}
       </div>
     </div> 
-    <button value=${post.id} class="btn btn-primary" data-share-btn-id="${post.id}">Share</button>
+    <div class="container row">
+      <button value=${id} class="btn btn-primary col-7 col-lg-4 col-xl-3 " data-share-btn-id="${id}"><i class="fa-solid fa-share-nodes me-2"></i>Share</button>
+    </div class="row">
   </div>`
 }

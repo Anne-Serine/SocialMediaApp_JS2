@@ -34,12 +34,16 @@
   max-width: 42px;
 }
 
+.custom-nav-icon {
+  max-width: 42px;
+}
+
 .font-icon {
   font-size: 1.5rem;
-  color: $body-color;
+  color: $link-color;
 
   &:hover {
-    color: $link-color;
+    color: $light;
   }
 }
 
@@ -96,6 +100,8 @@ button,
   min-height: 100%;
 }
 
+
+
 dialog::backdrop {
   background: black;
   opacity: 80%;
@@ -111,4 +117,9 @@ dialog::backdrop {
 
 .create-content-area {
   height: 100px;
+}
+
+a.disabled {
+  color: gray;
+  pointer-events: none;
 }
