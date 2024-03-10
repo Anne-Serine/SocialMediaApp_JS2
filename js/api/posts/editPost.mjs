@@ -24,7 +24,6 @@ export async function editPost(title, content, image, tags, id) {
         "Content-Type": "application/json"
       },
     });
-    console.log(response)
     if (response.ok) {
       return await response.json();
     } else {
