@@ -14,7 +14,8 @@ export async function viewSinglePostModal() {
     openSinglePostModal(id, singlePostModal);
   }
   viewPostBtns.forEach(button => {
-    button.addEventListener("click", async () => {
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
       const postId = button.dataset.viewPostId
 
       openSinglePostModal(postId, singlePostModal);

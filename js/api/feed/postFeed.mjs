@@ -1,5 +1,6 @@
 import { setDeletePostListener } from "../../handlers/deleteHandler.mjs";
 import { modalEditPost } from "../../handlers/modalEditPost.mjs";
+import { load } from "../../storage/index.mjs";
 import { logoutBtn } from "../auth/logout.mjs";
 import { makeTagsFilter } from "../posts/filterPosts.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
@@ -16,12 +17,11 @@ export async function postFeed() {
       postFeed.innerHTML = "";
 
       if(posts.data) {
-        const storage = localStorage.getItem("profile");
-        const profileObj = JSON.parse(storage);
+        const storage = load("profile");
         const tagsArray = new Set();
 
         for (const post of posts.data) {
-          postFeed.innerHTML += postTemplate(post, profileObj.name)
+          postFeed.innerHTML += postTemplate(post, storage.name)
 
           for( const tag of post.tags) {
             if(tag) {
@@ -41,5 +41,3 @@ export async function postFeed() {
     })
   }
 }
-
-
