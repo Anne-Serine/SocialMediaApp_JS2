@@ -1,0 +1,140 @@
+// $enable-negative-margins: true;
+
+
+// Configuration
+@import "../../node_modules/bootstrap/scss/functions";
+@import "components/variables";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+
+.login-logo {
+  background-color: $dark-green;
+  font-size: $h1-font-size;
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.profile-img {
+  width: 18rem;
+  margin-bottom: -50%;
+}
+
+.custom-thumbnail {
+  max-width: 42px;
+}
+
+.custom-nav-icon {
+  max-width: 42px;
+}
+
+.font-icon {
+  font-size: 1.5rem;
+  color: $link-color;
+
+  &:hover {
+    color: $light;
+  }
+}
+
+.image-card {
+  background-color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+.custom-list-group-item {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+[type=search] {
+  appearance: textfield;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  appearance: button;
+}
+
+::file-selector-button {
+  appearance: button;
+}
+
+.login-hero-img {
+  max-width: unset;
+}
+
+.avatar-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.avatar-image img {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+
+dialog::backdrop {
+  background: black;
+  opacity: 80%;
+}
+
+.max-height-40vh {
+  max-height: 40vh;
+}
+
+.form-control::placeholder {
+  opacity: 50%;
+}
+
+.create-content-area {
+  height: 100px;
+}
+
+a.disabled {
+  color: gray;
+  pointer-events: none;
+}
+
+.loading-indicator {
+  margin: auto;
+  border: 1rem solid $light;
+  border-top: 1rem solid $primary;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
