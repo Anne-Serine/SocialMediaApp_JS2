@@ -1,4 +1,4 @@
-import { API_BASE, API_POSTS,API_PARAMS, API_KEY } from "../constants.mjs";
+import { API_BASE, API_POSTS,API_PARAMS, API_KEY, API_PROFILE_POSTS } from "../constants.mjs";
 import { load } from "../../storage/index.mjs";
 
 /**
@@ -16,9 +16,14 @@ import { load } from "../../storage/index.mjs";
  * })
  * ```
  */
-export async function getPosts() {
+export async function getPosts(userName) {
   try {
-    const response = await fetch(API_BASE + API_POSTS + API_PARAMS, {
+    let postsURL = API_BASE + API_POSTS + API_PARAMS;
+
+    if(userName) {
+      postsURL = API_BASE + API_PROFILE_POSTS + `/${userName}/posts` + API_PARAMS;
+    }
+     const response = await fetch(postsURL, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${load("token")}`,

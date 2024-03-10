@@ -2,6 +2,7 @@ import { getSinglePost } from "../api/posts/getSinglePost.mjs";
 import { editPost } from "../api/posts/editPost.mjs";
 import { postFeed } from "../api/feed/postFeed.mjs";
 import { showStatusMessage } from "./showStatusMessage.mjs";
+import { load } from "../storage/index.mjs";
 
 export function modalEditPost() {
   const modal = document.querySelector("#modal");
@@ -55,7 +56,8 @@ export function modalEditPost() {
     const post = await editPost(data.title, data.content, data.image, data.tags, data.postId)
     if(post.data) {
       showStatusMessage("alert-success", "Your post was updated", "#editPostAlertContainer")
-      await postFeed();
+      const userName = load("profile");
+      await postFeed(userName.name);
       modal.close(); 
     } else {
       showStatusMessage("alert-danger", post, "#editPostAlertContainer")

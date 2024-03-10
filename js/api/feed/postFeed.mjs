@@ -1,19 +1,18 @@
 import { setDeletePostListener } from "../../handlers/deleteHandler.mjs";
 import { modalEditPost } from "../../handlers/modalEditPost.mjs";
 import { load } from "../../storage/index.mjs";
-import { logoutBtn } from "../auth/logout.mjs";
 import { makeTagsFilter } from "../posts/filterPosts.mjs";
 import { getPosts } from "../posts/getPosts.mjs";
 import { postTemplate } from "../posts/postTemplate.mjs";
 import { viewSinglePostModal } from "../posts/viewPostInModal.mjs";
 
-export async function postFeed() {
+export async function postFeed(userName) {
   const postFeed = document.querySelector("#postFeed");
 
 
   if (postFeed) {
     loadingIndicator();
-    await getPosts().then((posts) => {
+    await getPosts(userName).then((posts) => {
 
       postFeed.innerHTML = "";
 
@@ -51,5 +50,7 @@ function loadingIndicator() {
   loading.forEach((container) => {
    container.innerHTML =`<div class="loading-indicator mb"></div>`;
   })
- 
  }
+
+
+ 

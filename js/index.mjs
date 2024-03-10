@@ -6,6 +6,7 @@ import { postFeed } from "./api/feed/postFeed.mjs";
 import { searchInput } from "./handlers/search.mjs";
 import { resetTagFilter } from "./handlers/resetTagFilter.mjs";
 import { logoutBtn } from "./api/auth/logout.mjs";
+import { profilePosts } from "./handlers/profilePosts.mjs";
 
 
 // import { createAPIKey } from "./api/constants.mjs";
@@ -30,14 +31,13 @@ if (path === "/index.html" || path === "/") {
   }
 }
 
-
-
-await setCreatePostListener();
-
-await postFeed();
+if (path === "/profile/" || path === "/profile/index.html") {
+  await profilePosts()
+} else {
+  await setCreatePostListener();
+  await postFeed();
+  resetTagFilter();
+}
 
 searchInput();
-
-resetTagFilter();
-
 logoutBtn()

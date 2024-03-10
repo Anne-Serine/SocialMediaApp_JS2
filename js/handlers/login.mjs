@@ -1,5 +1,6 @@
 import { loginUser } from "../api/auth/login.mjs";
 import { load, remove } from "../storage/index.mjs";
+import { showStatusMessage } from "./showStatusMessage.mjs";
 
 export async function setLoginFormListener() {
   const form = document.querySelector("#loginForm");
