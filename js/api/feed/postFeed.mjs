@@ -12,6 +12,7 @@ export async function postFeed() {
 
 
   if (postFeed) {
+    loadingIndicator();
     await getPosts().then((posts) => {
 
       postFeed.innerHTML = "";
@@ -41,3 +42,14 @@ export async function postFeed() {
     })
   }
 }
+
+
+// Making a loading indicator that shows while loading posts from API
+function loadingIndicator() {
+
+  const loading = document.querySelectorAll(".loading-container");
+  loading.forEach((container) => {
+   container.innerHTML =`<div class="loading-indicator mb"></div>`;
+  })
+ 
+ }

@@ -19,7 +19,7 @@ export async function setCreatePostListener() {
         if (postData.data) {
           await postFeed()
           showStatusMessage("alert-success", "Your post was published!", "#createPostAlertMessage", true)
-          const formInputs = form.querySelectorAll("input");
+          const formInputs = form.querySelectorAll("[data-form-input]");
           formInputs.forEach((input) => {
             input.value = "";
           })
