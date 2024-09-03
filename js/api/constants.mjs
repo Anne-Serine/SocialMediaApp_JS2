@@ -1,5 +1,5 @@
 // import { load } from "../storage/index.mjs";
-export const API_KEY = "91c1ae40-2a5d-401f-9c2e-27abbaada9eb"; 
+export const API_KEY = "e85ea9b7-98d3-490a-bff3-ff74e7c79e46"; 
 export const API_BASE = "https://v2.api.noroff.dev";
 export const API_AUTH = "/auth";
 export const API_REGISTER = "/register";
